@@ -13,7 +13,8 @@ describe("Renders main page correctly", async () => {
     const h1 = await screen.queryByText("mon premier test");
 
     // Expectations
-    expect(h1).not.toBeNull();
+    // expect(h1).not.toBeNull();
+    expect(h1).toBeInTheDocument();
   });
 
   it("Should show the button count set to 0", async () => {
