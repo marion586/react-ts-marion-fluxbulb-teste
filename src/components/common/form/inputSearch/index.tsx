@@ -6,9 +6,10 @@ import "./style.scss";
 type Props = {
   onChange: (value: string) => void;
   value: string;
+  placeholder?: string;
 };
 
-const index = ({ onChange, value }: Props) => {
+const index = ({ onChange, value, placeholder }: Props) => {
   const [isBordered, setIsBordered] = useState(false);
   const [isFocused, setIsFocused] = useState(false);
 
@@ -37,17 +38,19 @@ const index = ({ onChange, value }: Props) => {
       <input
         onFocus={handleFocusedInput}
         onBlur={handleBlurInput}
-        placeholder="Rechercher"
+        placeholder={placeholder ? placeholder : "Rechercher"}
         value={value}
         onChange={(e) => onChange(e.target.value)}
       />
       <div className="input-search__icon">
         {isFocused ? (
-          <AiOutlineCloseCircle
-            onClick={() => onChange("")}
-            size={20}
-            fontWeight="bold"
-          />
+          <button onClick={() => onChange("")} data-testid="close-icon">
+            <AiOutlineCloseCircle
+              size={20}
+              fontWeight="bold"
+              className="close-icon"
+            />
+          </button>
         ) : (
           <BsSearch color="#ccc" size={20} fontWeight="bold" />
         )}
