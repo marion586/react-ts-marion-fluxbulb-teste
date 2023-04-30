@@ -1,5 +1,7 @@
 import { useState } from "react";
 import CustomButton from "./components/common/ui/customButton";
+
+import StyleGuide from "@/pages/styleGuide";
 function App() {
   const [count, setCount] = useState(0);
   const handleClick = () => {
@@ -18,6 +20,7 @@ function App() {
         size="small"
         width="100px"
       />
+      <StyleGuide />
     </div>
   );
 }
