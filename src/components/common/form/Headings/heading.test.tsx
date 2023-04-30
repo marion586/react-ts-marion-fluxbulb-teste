@@ -22,4 +22,12 @@ describe("Heading component", () => {
     const heading = screen.getByRole("heading", { level: 3 });
     expect(heading).toHaveStyle({ fontWeight: "600", fontFamily: "inter" });
   });
+
+  it("renders component with customed style", () => {
+    render(
+      <Heading level={3} title="Test Heading" style={{ color: "white" }} />
+    );
+    const heading = screen.getByRole("heading", { level: 3 });
+    expect(heading).toHaveStyle({ color: "white" });
+  });
 });

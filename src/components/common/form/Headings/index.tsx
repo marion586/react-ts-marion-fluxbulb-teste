@@ -8,13 +8,27 @@ interface HeadingProps {
   title: string;
   icon?: JSX.Element; // optionnel ?
   cardTitle?: boolean;
+  style?: Object;
 }
 
 const { Title } = Typography;
-const Heading: FC<HeadingProps> = ({ level, title, icon, cardTitle }) => {
+const Heading: FC<HeadingProps> = ({
+  level,
+  title,
+  icon,
+  cardTitle,
+  style,
+}) => {
   return (
     <>
-      <Title level={level} style={cardTitle ? Theme.titleCard : Theme.title}>
+      <Title
+        level={level}
+        style={
+          cardTitle
+            ? { ...Theme.titleCard, ...style }
+            : { ...Theme.title, ...style }
+        }
+      >
         {icon} {title}
       </Title>
     </>
