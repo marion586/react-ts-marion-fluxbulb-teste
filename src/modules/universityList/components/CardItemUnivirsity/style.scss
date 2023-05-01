@@ -1,0 +1,20 @@
+.card {
+  @apply w-[270px] h-[350px] rounded-lg;
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
+  &__header {
+    @apply w-full h-[150px] bg-gray-400 flex items-center justify-center relative;
+    &-icon {
+      @apply absolute top-2 left-2;
+    }
+  }
+  &__body {
+    @apply p-3 flex flex-col items-center justify-center gap-[10px];
+    &-ca {
+      border: 1px solid #ccc;
+      @apply p-2 bg-gray-100 rounded-lg;
+    }
+    &-address {
+      @apply flex gap-[5px] justify-center items-center;
+    }
+  }
+}

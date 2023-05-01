@@ -1,6 +1,6 @@
 import { useState } from "react";
 import CustomButton from "./components/common/ui/customButton";
-
+import University from "./modules/universityList";
 import StyleGuide from "@/pages/styleGuide";
 import Navbar from "@/components/layouts/Navbar";
 function App() {
@@ -19,6 +19,8 @@ function App() {
         value={searchData}
         onChange={handleChange}
       />
+
+      <University />
     </div>
   );
 }
