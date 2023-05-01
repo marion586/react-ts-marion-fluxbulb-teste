@@ -47,11 +47,17 @@ const index = ({ onChange, value, placeholder }: Props) => {
           <AiOutlineCloseCircle
             size={20}
             fontWeight="bold"
+            data-testid="close-icon"
             onClick={() => onChange("")}
             className="close-icon"
           />
         ) : (
-          <BsSearch color="#ccc" size={20} fontWeight="bold" />
+          <BsSearch
+            data-testid="search-icon"
+            color="#ccc"
+            size={20}
+            fontWeight="bold"
+          />
         )}
       </div>
     </div>

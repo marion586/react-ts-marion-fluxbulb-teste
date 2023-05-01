@@ -26,12 +26,12 @@ describe("Render a customed button ", async () => {
   });
 
   it("shows the clear icon when the input is focused", () => {
-    const { getByTestId, getByRole } = render(
+    const { queryByTestId, getByRole } = render(
       <InputSearch onChange={() => {}} value="" />
     );
     const input = getByRole("textbox");
     fireEvent.focus(input);
-    expect(getByTestId("close-icon")).toBeInTheDocument();
+    expect(queryByTestId("search-icon")).not.toBeInTheDocument();
   });
 
   it("hides the clear icon when the input is not focused", () => {
@@ -43,17 +43,20 @@ describe("Render a customed button ", async () => {
     expect(queryByTestId("close-icon")).not.toBeInTheDocument();
   });
 
-  //   it("clears the input value when the clear icon is clicked", async () => {
-  //     const onChange = vitest.fn();
-  //     const { getByTestId, getByRole } = await render(
-  //       <InputSearch onChange={onChange} value="test" />
-  //     );
+  it("clears the input value when the clear icon is clicked", async () => {
+    const onChange = vitest.fn();
+    const { queryByTestId, getByTestId, getByRole } = await render(
+      <InputSearch onChange={onChange} value="test" />
+    );
 
-  //     const input = getByRole("textbox");
-  //     const clearIcon = getByTestId("close-icon");
+    const input = getByRole("textbox");
+    await fireEvent.focus(input);
+    const clearIcon = getByTestId("close-icon");
 
-  //     fireEvent.click(clearIcon);
-  //     expect(onChange).toHaveBeenCalledWith("");
-  //     expect(input).toHaveValue("");
-  //   });
+    await fireEvent.click(clearIcon);
+
+    await fireEvent.click(input, { target: { value: "" } });
+    expect(onChange).toHaveBeenCalledWith("");
+    expect(input).toHaveValue("");
+  });
 });

@@ -1,8 +1,8 @@
 import { configureStore } from "@reduxjs/toolkit";
-import singUpReducer from "../modules/Login/Slice";
+import university from "../modules/universityList/reducers";
 export const store = configureStore({
   reducer: {
-    singUpReducer,
+    universityReducer: university,
   },
 });
 
