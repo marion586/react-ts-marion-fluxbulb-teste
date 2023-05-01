@@ -16,16 +16,19 @@ import { useMediaQuery } from "@/hooks/useMediaQuery";
 import { BsSearch } from "react-icons/bs";
 import Heading from "@/components/common/form/Headings";
 import { Colors, Positioning, Theme } from "@/themes/fluxbulb.theme";
-interface Props {}
+interface Props {
+  value: string;
+  onChange: (e: any) => void;
+  onSearchDataFromServer: () => void;
+}
 
-const Navbar = (props: Props) => {
+const Navbar = ({ value, onChange, onSearchDataFromServer }: Props) => {
   const [isTopOfPage, setIsTopOfPage] = useState(false);
   const isAboveMediumScreens = useMediaQuery("(min-width: 1100px)");
   const isAboveSearchScreens = useMediaQuery("(min-width: 780px)");
   const [isShowSearch, setIsShowSearch] = useState(isAboveSearchScreens);
   const [isHide, setIsHide] = useState(true);
-  const [searchData, setSearchData] = useState("");
-  console.log(isAboveSearchScreens, isAboveMediumScreens);
+
   useEffect(() => {
     const handleScroll = () => {
       if (window.scrollY === 0) {
@@ -58,7 +61,15 @@ const Navbar = (props: Props) => {
           </div>
 
           <div className="navbar__dropdown-item">
-            <AiOutlineSearch /> <span>Rechercher</span>{" "}
+            <CustomButton
+              type={Theme.button.primary}
+              content="Rechercher"
+              onClick={onSearchDataFromServer}
+              icon={<AiOutlineSearch />}
+              size="large"
+              width="100%"
+              rounded={Theme.roundedButton.xl}
+            />
           </div>
         </div>
       </div>
@@ -85,8 +96,8 @@ const Navbar = (props: Props) => {
       <div className="navbar__right">
         {isShowSearch ? (
           <InputSearch
-            value={searchData}
-            onChange={(val) => setSearchData(val)}
+            value={value}
+            onChange={(val) => onChange(val)}
             placeholder="Rechercher ici"
           />
         ) : (
@@ -103,10 +114,9 @@ const Navbar = (props: Props) => {
         {isAboveMediumScreens ? (
           <div className="flex gap-2 ">
             <CustomButton
-              href={""}
               type={Theme.button.primary}
               content="Rechercher"
-              onClick={() => console.log("btn clickked")}
+              onClick={onSearchDataFromServer}
               icon={<AiOutlineSearch />}
               size="large"
               width="200px"

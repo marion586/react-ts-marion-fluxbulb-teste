@@ -7,7 +7,7 @@ interface ButtonProps {
   content: string;
   type: React.CSSProperties | undefined;
   size?: SizeType;
-  href?: string;
+
   width?: string;
   icon?: JSX.Element; // optionnel ?;
   rounded?: object;
@@ -18,7 +18,7 @@ const ButtonCustom: FC<ButtonProps> = ({
   content,
   type,
   icon,
-  href,
+
   size,
   width,
   rounded,
@@ -42,7 +42,6 @@ const ButtonCustom: FC<ButtonProps> = ({
   return (
     <>
       <Button
-        href={href}
         icon={icon}
         style={{
           ...type,
@@ -52,7 +51,10 @@ const ButtonCustom: FC<ButtonProps> = ({
           ...Positioning.center,
         }}
         size={size}
-        onClick={onClick}
+        onClick={(e) => {
+          e.preventDefault;
+          onClick();
+        }}
       >
         <span className="flex items-center gap-2"> {content}</span>
       </Button>

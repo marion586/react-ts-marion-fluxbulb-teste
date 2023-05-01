@@ -4,13 +4,21 @@ import CustomButton from "./components/common/ui/customButton";
 import StyleGuide from "@/pages/styleGuide";
 import Navbar from "@/components/layouts/Navbar";
 function App() {
-  const [count, setCount] = useState(0);
-  const handleClick = () => {
-    console.log("clicked");
+  const [searchData, setSearchData] = useState("");
+  const handleChange = (e: any) => {
+    setSearchData(e);
+  };
+
+  const searchDataFromServer = () => {
+    console.log(searchData, "klsdf");
   };
   return (
     <div className="app">
-      <Navbar />
+      <Navbar
+        onSearchDataFromServer={searchDataFromServer}
+        value={searchData}
+        onChange={handleChange}
+      />
     </div>
   );
 }
