@@ -22,7 +22,7 @@ const index = ({ onChange, value, placeholder }: Props) => {
     setIsBordered(false);
     setTimeout(() => {
       setIsFocused(false);
-    }, 0);
+    }, 1000);
   };
 
   return (
@@ -44,13 +44,12 @@ const index = ({ onChange, value, placeholder }: Props) => {
       />
       <div className="input-search__icon">
         {isFocused ? (
-          <button onClick={() => onChange("")} data-testid="close-icon">
-            <AiOutlineCloseCircle
-              size={20}
-              fontWeight="bold"
-              className="close-icon"
-            />
-          </button>
+          <AiOutlineCloseCircle
+            size={20}
+            fontWeight="bold"
+            onClick={() => onChange("")}
+            className="close-icon"
+          />
         ) : (
           <BsSearch color="#ccc" size={20} fontWeight="bold" />
         )}

@@ -10,11 +10,26 @@
         rgb(0 0 0 / 6%) 0px 2px 4px -1px;
       transition: all 1s ease;
     }
+    &-item {
+      @apply flex gap-2 items-center rounded-md p-3;
+      transition: all 1s ease;
+    }
+    &-item:hover {
+      @apply bg-gray-200;
+    }
   }
   &__left {
     @apply flex justify-between items-center gap-5;
     &-paragraph {
       @apply self-end;
+    }
+    &-logo-grp {
+      @apply flex items-center gap-2;
+    }
+    img {
+      height: 50%;
+      width: auto;
+      object-fit: cover;
     }
   }
   &__right {

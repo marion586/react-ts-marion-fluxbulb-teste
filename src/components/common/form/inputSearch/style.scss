@@ -1,5 +1,5 @@
 .input-search {
-  @apply flex  items-center justify-between  w-[400px] border-[1px] p-1 pl-[20px]
+  @apply flex  items-center w-full justify-between  md:w-[400px]  border-[1px] p-1 pl-[20px]
    rounded-3xl;
   box-sizing: border-box;
   transition: all 1s ease;
@@ -10,15 +10,16 @@
     outline: none;
     transition: all 1s ease;
   }
-  &__icon:hover {
-    background-color: rgb(233, 227, 227);
-    border-radius: 50%;
-    transition: all 1s ease;
-  }
   &__icon {
+    border-radius: 50%;
     padding: 10px;
     transition: all 1s ease;
     cursor: pointer;
+  }
+  &__icon:hover {
+    background-color: rgb(233, 227, 227);
+
+    transition: all 1s ease;
   }
 }
 
