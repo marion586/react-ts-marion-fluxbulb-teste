@@ -16,13 +16,13 @@ const University = () => {
   const searchData = useSelector(selectSearchData);
 
   const searchUniversityFromServer = async (name: string) => {
+    setIsLoading(true);
     const { data } = await UniversityService.getUniversityListByName(name);
     dispatch(setUniversity(data));
     setIsLoading(false);
   };
 
   useEffect(() => {
-    setIsLoading(true);
     if (searchData) {
       searchUniversityFromServer(searchData);
     }

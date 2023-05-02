@@ -20,9 +20,15 @@ interface Props {
   value: string;
   onChange: (e: any) => void;
   onSearchDataFromServer: () => void;
+  onKeyPressed: (e: any) => void;
 }
 
-const Navbar = ({ value, onChange, onSearchDataFromServer }: Props) => {
+const Navbar = ({
+  value,
+  onChange,
+  onSearchDataFromServer,
+  onKeyPressed,
+}: Props) => {
   const [isTopOfPage, setIsTopOfPage] = useState(false);
   const isAboveMediumScreens = useMediaQuery("(min-width: 1100px)");
   const isAboveSearchScreens = useMediaQuery("(min-width: 780px)");
@@ -100,6 +106,7 @@ const Navbar = ({ value, onChange, onSearchDataFromServer }: Props) => {
           <InputSearch
             value={value}
             onChange={(val) => onChange(val)}
+            onKeyPressed={onKeyPressed}
             placeholder="Rechercher ici"
           />
         ) : (

@@ -4,12 +4,13 @@ import { AiOutlineCloseCircle } from "react-icons/ai";
 import "./style.scss";
 
 type Props = {
-  onChange: (value: string) => void;
+  onChange: (event: any) => void;
   value: string;
   placeholder?: string;
+  onKeyPressed: (event: any) => void;
 };
 
-const index = ({ onChange, value, placeholder }: Props) => {
+const index = ({ onChange, value, placeholder, onKeyPressed }: Props) => {
   const [isBordered, setIsBordered] = useState(false);
   const [isFocused, setIsFocused] = useState(false);
 
@@ -41,6 +42,7 @@ const index = ({ onChange, value, placeholder }: Props) => {
         placeholder={placeholder ? placeholder : "Rechercher"}
         value={value}
         onChange={(e) => onChange(e.target.value)}
+        onKeyPress={(e) => onKeyPressed(e)}
       />
       <div className="input-search__icon">
         {isFocused ? (

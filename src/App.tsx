@@ -22,9 +22,17 @@ function App() {
     setSearchDataServer(searchData);
     dispatch(setSearchDataStore(searchData));
   };
+  const handleKeyPressed = (e: any) => {
+    if (e.key === "Enter") {
+      {
+        searchDataFromServer();
+      }
+    }
+  };
   return (
     <div className="app">
       <Navbar
+        onKeyPressed={handleKeyPressed}
         onSearchDataFromServer={searchDataFromServer}
         value={searchData}
         onChange={handleChange}
