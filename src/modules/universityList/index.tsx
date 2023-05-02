@@ -1,6 +1,7 @@
 import React from "react";
 import { universityModel } from "./models/unversityItemModel";
 import CardItemUniversity from "./components/CardItemUnivirsity";
+import "./style.scss";
 const data = [
   {
     "state-province": null,
@@ -25,10 +26,12 @@ type Props = {};
 console.log(data[0]["state-province"]);
 const University = (props: Props) => {
   return (
-    <div>
-      {data.map((item: any, key) => (
-        <CardItemUniversity data={item} key={key} />
-      ))}
+    <div className="university">
+      <div className="university__list">
+        {data.map((item: any, key) => (
+          <CardItemUniversity data={item} key={key} />
+        ))}
+      </div>
     </div>
   );
 };
