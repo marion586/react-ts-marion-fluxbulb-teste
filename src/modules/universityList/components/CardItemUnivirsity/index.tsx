@@ -11,7 +11,6 @@ type Props = {
 const index = ({
   data: { name, alpha_two_code, web_pages, domains, country, ...rest },
 }: Props) => {
-  console.log(rest);
   return (
     <div className="card">
       <div className="card__header">
