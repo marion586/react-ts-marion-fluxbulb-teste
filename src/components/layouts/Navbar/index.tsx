@@ -50,7 +50,9 @@ const Navbar = ({ value, onChange, onSearchDataFromServer }: Props) => {
     >
       <div className="navbar__dropdown">
         <div
-          className={`navbar__dropdown-card relative ${isHide ? "isHide" : ""}`}
+          className={`navbar__dropdown-card relative ${
+            isHide ? "isHide " : ""
+          }`}
         >
           <div>
             <AiOutlineClose

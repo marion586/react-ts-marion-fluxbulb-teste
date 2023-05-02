@@ -2,6 +2,7 @@ import React from "react";
 import { universityModel } from "./models/unversityItemModel";
 import CardItemUniversity from "./components/CardItemUnivirsity";
 import "./style.scss";
+import Heading from "@/components/common/form/Headings";
 const data = [
   {
     "state-province": null,
@@ -27,6 +28,7 @@ console.log(data[0]["state-province"]);
 const University = (props: Props) => {
   return (
     <div className="university">
+      <Heading title="Resultat de la Recherche:" level={4} />
       <div className="university__list">
         {data.map((item: any, key) => (
           <CardItemUniversity data={item} key={key} />

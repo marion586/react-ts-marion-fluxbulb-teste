@@ -8,7 +8,9 @@
       @apply flex flex-col gap-5 rounded-md bg-white p-5 mt-[2px];
       box-shadow: rgb(0 0 0 / 10%) 0px 4px 6px -1px,
         rgb(0 0 0 / 6%) 0px 2px 4px -1px;
-      transition: all 1s ease;
+      transition: all 1s ease, all 300ms;
+      visibility: visible;
+      opacity: 1;
     }
     &-item {
       @apply flex gap-2 items-center rounded-md p-3;
@@ -65,5 +67,11 @@
 
 .isHide {
   transform: translateX(120%);
-  transition: all 1s ease;
+  transition: all 1s ease, all 300ms;
+  visibility: hidden;
+  opacity: 0;
+  transition: visibility 0s, opacity 0.5s linear;
+}
+.isHide {
+  display: none;
 }

@@ -1,5 +1,5 @@
 .card {
-  @apply w-[270px] h-[350px] rounded-lg;
+  @apply w-[270px] h-[350px] rounded-lg overflow-hidden;
   box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
   &__header {
     @apply w-full h-[150px] bg-gray-400 flex items-center justify-center relative;
