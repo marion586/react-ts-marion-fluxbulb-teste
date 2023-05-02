@@ -6,12 +6,15 @@ import Navbar from "@/components/layouts/Navbar";
 import "./App.scss";
 function App() {
   const [searchData, setSearchData] = useState("");
+  const [searchDataServer, setSearchDataServer] = useState("");
+
   const handleChange = (e: any) => {
     setSearchData(e);
+    setSearchDataServer(e);
   };
 
   const searchDataFromServer = () => {
-    console.log(searchData, "klsdf");
+    setSearchDataServer(searchData);
   };
   return (
     <div className="app">
@@ -22,7 +25,7 @@ function App() {
       />
 
       <div className="app__container">
-        <University />
+        <University searchData={searchDataServer} />
       </div>
     </div>
   );

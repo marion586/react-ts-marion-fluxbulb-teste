@@ -1,4 +1,5 @@
-import { createSlice } from "@reduxjs/toolkit";
+import { createSlice, PayloadAction } from "@reduxjs/toolkit";
+import { universityModel } from "../models/unversityItemModel";
 
 const initialState = {
   university: null,
@@ -8,7 +9,7 @@ export const university = createSlice({
   name: "universityReducer",
   initialState,
   reducers: {
-    setUniversity: (state, action) => {
+    setUniversity: (state: any, action: PayloadAction<universityModel[]>) => {
       state.university = action.payload;
     },
   },
@@ -17,3 +18,6 @@ export const university = createSlice({
 export default university.reducer;
 
 export const { setUniversity } = university.actions;
+
+export const selectUniversity = (state: any) =>
+  state.universityReducer.university;
