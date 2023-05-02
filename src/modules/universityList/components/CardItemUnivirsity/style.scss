@@ -1,14 +1,14 @@
 .card {
-  @apply w-[270px] h-[350px] rounded-lg overflow-hidden;
+  @apply md:w-[270px] md:h-[350px]  block sm:h-[200px] sm:flex md:block w-full rounded-lg overflow-hidden z-0;
   box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
   &__header {
-    @apply w-full h-[150px] bg-gray-400 flex items-center justify-center relative;
+    @apply md:w-full h-[150px] md:h-[150px] sm:h-full  bg-gray-400 flex flex-1 items-center justify-center relative z-0;
     &-icon {
       @apply absolute top-2 left-2;
     }
   }
   &__body {
-    @apply p-3 flex flex-col items-center justify-center gap-[10px];
+    @apply p-3 flex flex-grow flex-col  items-center justify-center gap-[10px];
     &-ca {
       border: 1px solid #ccc;
       @apply p-2 bg-gray-100 rounded-lg;

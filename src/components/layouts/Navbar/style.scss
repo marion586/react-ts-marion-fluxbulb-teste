@@ -3,14 +3,19 @@
   // border-bottom: 1px solid #d8d8d8;
 
   &__dropdown {
-    @apply absolute bottom-0 top-[100%] right-5  w-[400px];
+    @apply absolute bottom-0 top-[100%] right-5  w-[400px] z-40;
+
+    visibility: visible;
+    opacity: 1;
+    transition: visibility 0s, opacity 0.5s linear;
     &-card {
-      @apply flex flex-col gap-5 rounded-md bg-white p-5 mt-[2px];
+      @apply flex flex-col gap-5 rounded-md bg-white p-5 mt-[2px] z-40;
       box-shadow: rgb(0 0 0 / 10%) 0px 4px 6px -1px,
         rgb(0 0 0 / 6%) 0px 2px 4px -1px;
-      transition: all 1s ease, all 300ms;
+      overflow: hidden;
       visibility: visible;
       opacity: 1;
+      transition: visibility 0s, opacity 0.5s linear;
     }
     &-item {
       @apply flex gap-2 items-center rounded-md p-3;
@@ -66,12 +71,7 @@
 }
 
 .isHide {
-  transform: translateX(120%);
-  transition: all 1s ease, all 300ms;
   visibility: hidden;
   opacity: 0;
   transition: visibility 0s, opacity 0.5s linear;
-}
-.isHide {
-  display: none;
 }
