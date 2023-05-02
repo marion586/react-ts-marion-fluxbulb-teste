@@ -4,19 +4,16 @@ import CardItemUniversity from "./components/CardItemUnivirsity";
 import "./style.scss";
 import Heading from "@/components/common/form/Headings";
 import UniversityService from "./services";
-import { selectUniversity, setUniversity } from "./reducers";
+import { selectUniversity, setUniversity, selectSearchData } from "./reducers";
 import { useDispatch, useSelector } from "react-redux";
 import { Spinner } from "@/components/common/ui/Spinner";
 import { Empty } from "antd";
 
-type Props = {
-  searchData: string;
-};
-
-const University = ({ searchData }: Props) => {
+const University = () => {
   const [isLoading, setIsLoading] = useState(true);
   const dispatch = useDispatch();
   const universityData = useSelector(selectUniversity);
+  const searchData = useSelector(selectSearchData);
 
   const searchUniversityFromServer = async (name: string) => {
     const { data } = await UniversityService.getUniversityListByName(name);
@@ -25,7 +22,8 @@ const University = ({ searchData }: Props) => {
   };
 
   useEffect(() => {
-    if (searchData !== "") {
+    setIsLoading(true);
+    if (searchData) {
       searchUniversityFromServer(searchData);
     }
     setIsLoading(false);
@@ -49,7 +47,11 @@ const University = ({ searchData }: Props) => {
             <Empty
               image="https://gw.alipayobjects.com/zos/antfincdn/ZHrcdLPrvN/empty.svg"
               className="university__empty"
-              description={<span>Aucun unirsité Trouvé</span>}
+              description={
+                <span>
+                  Aucun unirsité Trouvé pour <strong>{searchData} </strong>
+                </span>
+              }
             />
           )}
         </div>
