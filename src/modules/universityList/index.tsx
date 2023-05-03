@@ -15,12 +15,19 @@ const University = () => {
   const dispatch = useDispatch();
   const universityData = useSelector(selectUniversity);
   const searchData = useSelector(selectSearchData);
+  const [textError, setTextError] = useState<any>(null);
 
   const searchUniversityFromServer = async (name: string) => {
-    setIsLoading(true);
-    const { data } = await UniversityService.getUniversityListByName(name);
-    dispatch(setUniversity(data));
-    setIsLoading(false);
+    try {
+      setTextError(null);
+      setIsLoading(true);
+      const { data } = await UniversityService.getUniversityListByName(name);
+      dispatch(setUniversity(data));
+    } catch (error) {
+      setTextError("Il' ya un erreur");
+    } finally {
+      setIsLoading(false);
+    }
   };
 
   useEffect(() => {
@@ -39,6 +46,8 @@ const University = () => {
       />
       {isLoading ? (
         <Spinner />
+      ) : textError ? (
+        <span>{textError}</span>
       ) : (
         <div className="university__list">
           {universityData?.length ? (

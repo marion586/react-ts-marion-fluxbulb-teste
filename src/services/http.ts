@@ -6,6 +6,8 @@ if (localStorage.getItem("token")) {
 } else {
   delete (axios as AxiosStatic).defaults.headers.common["Authentication"];
 }
+axios.defaults.headers.post["Content-Type"] = "application/json;charset=utf-8";
+axios.defaults.headers.post["Access-Control-Allow-Origin"] = "*";
 
 /**
  * AXIOS CONFIG
