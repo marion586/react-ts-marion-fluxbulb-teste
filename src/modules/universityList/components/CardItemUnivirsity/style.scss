@@ -1,6 +1,8 @@
 .card {
   @apply md:w-[270px] md:h-[350px]  block sm:h-[200px] sm:flex md:block w-full rounded-lg overflow-hidden z-0;
   box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
+  transition: all 0.5s ease-in-out;
+  cursor: pointer;
   &__header {
     @apply md:w-full h-[150px] md:h-[150px] sm:h-full  bg-gray-400 flex flex-1 items-center justify-center relative z-0;
     &-icon {
@@ -17,4 +19,10 @@
       @apply flex gap-[5px] justify-center items-center;
     }
   }
+}
+
+.card:hover {
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  transform: translateY(-5%);
+  transition: all 0.5s ease-in-out;
 }

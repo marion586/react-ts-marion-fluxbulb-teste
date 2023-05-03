@@ -8,6 +8,7 @@ import { selectUniversity, setUniversity, selectSearchData } from "./reducers";
 import { useDispatch, useSelector } from "react-redux";
 import { Spinner } from "@/components/common/ui/Spinner";
 import { Empty } from "antd";
+import { Link } from "react-router-dom";
 
 const University = () => {
   const [isLoading, setIsLoading] = useState(false);
@@ -42,7 +43,9 @@ const University = () => {
         <div className="university__list">
           {universityData?.length ? (
             universityData.map((item: any, key: number) => (
-              <CardItemUniversity data={item} key={key} />
+              <Link to={`${item.web_pages}`} target="_blank" key={key}>
+                <CardItemUniversity data={item} />
+              </Link>
             ))
           ) : (
             <Empty

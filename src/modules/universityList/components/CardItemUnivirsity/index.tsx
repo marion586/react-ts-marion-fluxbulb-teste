@@ -30,7 +30,7 @@ const index = ({
         <Heading title={name} level={5} style={{ color: "gray" }} />
 
         <span className="card__body-ca">{alpha_two_code} </span>
-
+        <span>{domains[0]}</span>
         <div className="card__body-address">
           <FaMapMarkerAlt />
           <span>
