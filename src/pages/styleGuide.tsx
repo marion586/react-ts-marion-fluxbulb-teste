@@ -10,7 +10,11 @@ const styleGuide = (props: Props) => {
   return (
     <>
       <Heading title="FLUXBULB" style={{ color: "#ccc" }} level={1} />
-      <InputSearch value={value} onChange={(val) => setValue(val)} />
+      <InputSearch
+        onKeyPressed={(e) => console.log(e)}
+        value={value}
+        onChange={(val) => setValue(val)}
+      />
     </>
   );
 };
