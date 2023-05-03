@@ -10,7 +10,7 @@ import { Spinner } from "@/components/common/ui/Spinner";
 import { Empty } from "antd";
 
 const University = () => {
-  const [isLoading, setIsLoading] = useState(true);
+  const [isLoading, setIsLoading] = useState(false);
   const dispatch = useDispatch();
   const universityData = useSelector(selectUniversity);
   const searchData = useSelector(selectSearchData);
@@ -25,8 +25,9 @@ const University = () => {
   useEffect(() => {
     if (searchData) {
       searchUniversityFromServer(searchData);
+    } else {
+      dispatch(setUniversity(null));
     }
-    setIsLoading(false);
   }, [searchData]);
   return (
     <div className="university">

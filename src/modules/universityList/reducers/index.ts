@@ -10,7 +10,10 @@ export const university = createSlice({
   name: "universityReducer",
   initialState,
   reducers: {
-    setUniversity: (state: any, action: PayloadAction<universityModel[]>) => {
+    setUniversity: (
+      state: any,
+      action: PayloadAction<universityModel[] | null>
+    ) => {
       state.university = action.payload;
     },
     setSearchDataStore: (state: any, action: PayloadAction<string>) => {

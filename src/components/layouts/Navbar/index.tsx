@@ -72,7 +72,10 @@ const Navbar = ({
             <CustomButton
               type={Theme.button.primary}
               content="Rechercher"
-              onClick={onSearchDataFromServer}
+              onClick={() => {
+                onSearchDataFromServer();
+                setIsHide((prev) => !prev);
+              }}
               icon={<AiOutlineSearch />}
               size="large"
               width="100%"

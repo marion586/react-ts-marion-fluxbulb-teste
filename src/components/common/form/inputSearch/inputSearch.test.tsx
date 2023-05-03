@@ -6,9 +6,15 @@ describe("Render a customed button ", async () => {
   afterEach(() => {
     cleanup();
   });
+  const onKeyPressed = vitest.fn();
   it("renders the input element", async () => {
     await render(
-      <InputSearch placeholder="Rechercher" onChange={() => {}} value="" />
+      <InputSearch
+        onKeyPressed={onKeyPressed}
+        placeholder="Rechercher"
+        onChange={() => {}}
+        value=""
+      />
     );
 
     const inputElement = screen.getByPlaceholderText("Rechercher");
@@ -18,7 +24,12 @@ describe("Render a customed button ", async () => {
   it("calls the onChange function when the input value changes", async () => {
     const onChangeMock = vitest.fn();
     await render(
-      <InputSearch placeholder="Rechercher" onChange={onChangeMock} value="" />
+      <InputSearch
+        onKeyPressed={onKeyPressed}
+        placeholder="Rechercher"
+        onChange={onChangeMock}
+        value=""
+      />
     );
     const inputElement = screen.getByPlaceholderText("Rechercher");
     await fireEvent.change(inputElement, { target: { value: "test" } });
@@ -27,7 +38,7 @@ describe("Render a customed button ", async () => {
 
   it("shows the clear icon when the input is focused", () => {
     const { queryByTestId, getByRole } = render(
-      <InputSearch onChange={() => {}} value="" />
+      <InputSearch onKeyPressed={onKeyPressed} onChange={() => {}} value="" />
     );
     const input = getByRole("textbox");
     fireEvent.focus(input);
@@ -36,7 +47,11 @@ describe("Render a customed button ", async () => {
 
   it("hides the clear icon when the input is not focused", () => {
     const { queryByTestId, getByRole } = render(
-      <InputSearch onChange={() => {}} value="test" />
+      <InputSearch
+        onKeyPressed={onKeyPressed}
+        onChange={() => {}}
+        value="test"
+      />
     );
     const input = getByRole("textbox");
     fireEvent.blur(input);
@@ -46,7 +61,11 @@ describe("Render a customed button ", async () => {
   it("clears the input value when the clear icon is clicked", async () => {
     const onChange = vitest.fn();
     const { queryByTestId, getByTestId, getByRole } = await render(
-      <InputSearch onChange={onChange} value="test" />
+      <InputSearch
+        onKeyPressed={onKeyPressed}
+        onChange={onChange}
+        value="test"
+      />
     );
 
     const input = getByRole("textbox");
