@@ -7,7 +7,7 @@ type Props = {
   onChange: (event: any) => void;
   value: string;
   placeholder?: string;
-  onKeyPressed?: (event: any) => void;
+  onKeyPressed: (event: any) => void;
 };
 
 const index = ({ onChange, value, placeholder, onKeyPressed }: Props) => {
