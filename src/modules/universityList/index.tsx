@@ -52,9 +52,7 @@ const University = () => {
         <div className="university__list">
           {universityData?.length ? (
             universityData.map((item: any, key: number) => (
-              <Link to={`${item.web_pages}`} target="_blank" key={key}>
-                <CardItemUniversity data={item} />
-              </Link>
+              <CardItemUniversity key={key} data={item} />
             ))
           ) : (
             <Empty

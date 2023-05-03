@@ -4,6 +4,7 @@ import Heading from "@/components/common/form/Headings";
 import { MdFavoriteBorder } from "react-icons/md";
 import { FaMapMarkerAlt } from "react-icons/fa";
 import { universityModel } from "../../models/unversityItemModel";
+import { Link } from "react-router-dom";
 
 type Props = {
   data: universityModel;
@@ -30,6 +31,7 @@ const index = ({
         <Heading title={name} level={5} style={{ color: "gray" }} />
 
         <span className="card__body-ca">{alpha_two_code} </span>
+        <Link to={`${web_pages}`} className="" target="_blank"></Link>
         <span>{domains[0]}</span>
         <div className="card__body-address">
           <FaMapMarkerAlt />
