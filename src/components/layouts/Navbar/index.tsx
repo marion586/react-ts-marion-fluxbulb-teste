@@ -90,7 +90,7 @@ const Navbar = ({
           <div className="navbar__left-logo-grp">
             <img src={images.imgLogo} />
             <Heading
-              title="FLUXBULB"
+              title="FLUXBUILD"
               style={{ color: Colors.primary }}
               level={1}
             />
