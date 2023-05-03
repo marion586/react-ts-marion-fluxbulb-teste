@@ -2,6 +2,8 @@ import { describe, expect, it, vitest } from "vitest";
 import { cleanup, render, fireEvent } from "@testing-library/react";
 import CustomButton from "@/components/common/ui/customButton";
 import userEvent from "@testing-library/user-event";
+import "jest-styled-components";
+import "@testing-library/jest-dom";
 describe("Render a customed button ", async () => {
   const handleClick = vitest.fn();
 
